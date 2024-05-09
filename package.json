@@ -22,6 +22,5 @@
     "@inertiajs/progress": "^0.2.7",
     "path": "^0.12.7",
     "@vueup/vue-quill": "latest"
-  },
-  "dependencies": {}
+  }
 }
