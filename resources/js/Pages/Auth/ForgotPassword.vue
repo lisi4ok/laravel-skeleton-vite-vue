@@ -4,10 +4,12 @@ import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
-import { Head, useForm } from '@inertiajs/vue3';
+import {Head, Link, useForm} from '@inertiajs/vue3';
 
 defineProps<{
     status?: string;
+    canLogin?: boolean;
+    canRegister?: boolean;
 }>();
 
 const form = useForm({
@@ -50,6 +52,23 @@ const submit = () => {
             </div>
 
             <div class="flex items-center justify-end mt-4">
+                <Link
+                    v-if="canLogin"
+                    :href="route('login')"
+                    class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
+                >
+                    Log in
+                </Link>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <Link
+                    v-if="canRegister"
+                    :href="route('register')"
+                    class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                >
+                    Register
+                </Link>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
                 <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     Email Password Reset Link
                 </PrimaryButton>
