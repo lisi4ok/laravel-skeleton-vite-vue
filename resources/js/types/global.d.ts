@@ -9,6 +9,7 @@ declare global {
     }
 
     var route: typeof ziggyRoute;
+    var Ziggy: ZiggyConfig;
 }
 
 declare module 'vue' {
@@ -20,3 +21,8 @@ declare module 'vue' {
 declare module '@inertiajs/core' {
     interface PageProps extends InertiaPageProps, AppPageProps {}
 }
+
+declare module '@inertiajs/vue3' {
+    export function usePage<T>(): Page<T>
+}
+

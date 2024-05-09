@@ -6,10 +6,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
+use Spatie\Sluggable\HasSlug;
+use App\Interfaces\HasImageInterface;
+use App\Traits\HasImage;
+use Spatie\Sluggable\SlugOptions;
 
-class User extends Authenticatable
+class User extends Authenticatable implements HasImageInterface
 {
-    use HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, HasSlug, HasImage;
 
     /**
      * The attributes that are mass assignable.
@@ -20,6 +25,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+    ];
+
+    protected $appends = [
+        'image_url',
+        'default_image_url',
     ];
 
     /**
@@ -43,5 +53,19 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+    }
+
+    public function getSlugOptions(): SlugOptions
+    {
+        // return SlugOptions::createWithLocales(array_keys(config('app`.available_locales')))
+        return SlugOptions::create()
+            ->generateSlugsFrom('name')
+            ->saveSlugsTo('slug')
+            ->usingLanguage(config('app.locale'));
     }
 }
