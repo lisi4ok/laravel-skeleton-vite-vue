@@ -1,10 +1,8 @@
-<script setup>
+<script setup lang="ts">
 import { Link } from '@inertiajs/vue3';
-defineProps({
-    collection: {
-        type: Object,
-    },
-});
+defineProps<{
+    collection: object;
+}>();
 </script>
 <template>
     <nav class="flex flex-wrap justify-center content-center items-center gap-4">

@@ -1,3 +1,25 @@
+
+input:-webkit-autofill:is(.dark *),
+textarea:-webkit-autofill:is(.dark *),
+select:-webkit-autofill:is(.dark *) {
+    border: 2px solid rgb(55 65 81)!important;
+    -webkit-text-fill-color: rgb(209 213 219)!important;
+    -webkit-box-shadow: 0 0 0 1000px rgb(17 24 39) inset !important;
+    transition: background-color 5000s ease-in-out 0s !important;
+}
+
+input:-webkit-autofill:hover:is(.dark *),
+input:-webkit-autofill:focus:is(.dark *),
+textarea:-webkit-autofill:hover:is(.dark *),
+textarea:-webkit-autofill:focus:is(.dark *),
+select:-webkit-autofill:hover:is(.dark *),
+select:-webkit-autofill:focus:is(.dark *) {
+    border: 2px solid rgb(79 70 229) !important;
+    -webkit-text-fill-color: rgb(209 213 219)!important;
+    -webkit-box-shadow: 0 0 0 1000px rgb(17 24 39) inset !important;
+    transition: background-color 5000s ease-in-out 0s !important;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
