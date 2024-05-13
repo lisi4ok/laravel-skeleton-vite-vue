@@ -8,13 +8,17 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Sluggable\HasSlug;
-use App\Interfaces\HasImageInterface;
-use App\Traits\HasImage;
 use Spatie\Sluggable\SlugOptions;
 
-class User extends Authenticatable implements HasImageInterface
+use App\Interfaces\ImageInterface;
+use App\Traits\Imageable;
+
+//use App\Interfaces\HasImageInterface;
+//use App\Traits\HasImage;
+
+class User extends Authenticatable implements ImageInterface //, HasImageInterface
 {
-    use HasApiTokens, HasFactory, Notifiable, HasSlug, HasImage;
+    use HasApiTokens, HasFactory, Notifiable, HasSlug, Imageable; //, HasImage;
 
     /**
      * The attributes that are mass assignable.
