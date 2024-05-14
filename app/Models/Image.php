@@ -8,6 +8,13 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
 class Image extends Model
 {
     /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'images';
+
+    /**
      * Get the parent imageable model.
      *
      * @return MorphTo

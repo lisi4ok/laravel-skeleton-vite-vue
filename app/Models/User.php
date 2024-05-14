@@ -21,20 +21,28 @@ class User extends Authenticatable implements ImageInterface //, HasImageInterfa
     use HasApiTokens, HasFactory, Notifiable, HasSlug, Imageable; //, HasImage;
 
     /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'users';
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
     protected $fillable = [
         'name',
+        'slug',
         'email',
         'password',
     ];
 
-    protected $appends = [
-        'image_url',
-        'default_image_url',
-    ];
+//    protected $appends = [
+//        'image_url',
+//        'default_image_url',
+//    ];
 
     /**
      * The attributes that should be hidden for serialization.

@@ -5,6 +5,7 @@ import createServer from '@inertiajs/vue3/server';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { ZiggyVue } from 'ziggy-js';
 import { QuillEditor } from '@vueup/vue-quill';
+import VueDatePicker from '@vuepic/vue-datepicker';
 //import { translations } from './translations';
 
 import.meta.glob(['../assets/fonts/**']);
@@ -27,6 +28,7 @@ createServer((page) =>
                 .component('Link', Link)
                 .component('Head', Head)
                 .component('QuillEditor', QuillEditor)
+                .component('VueDatePicker', VueDatePicker)
                 //.mixin(translations)
                 ;
         },
