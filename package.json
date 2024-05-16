@@ -14,6 +14,7 @@
     "@types/ziggy-js": "^1.8.0",
     "@vitejs/plugin-vue": "^5.0.4",
     "@vue/server-renderer": "^3.4.27",
+    "@vuepic/vue-datepicker": "^8.6.0",
     "@vueup/vue-quill": "latest",
     "@vueuse/components": "^10.9.0",
     "@vueuse/core": "^10.9.0",
@@ -26,7 +27,6 @@
     "typescript": "^5.4.5",
     "vite": "^5.2.11",
     "vue": "^3.4.27",
-    "vue-tsc": "^1.8.27",
-    "@vuepic/vue-datepicker": "^8.6.0"
+    "vue-tsc": "^1.8.27"
   }
 }

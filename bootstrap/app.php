@@ -27,17 +27,17 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withExceptions(function (Exceptions $exceptions) {
         //
     })
-    ->booting(function (Application $application) {
-        if (isset($_ENV['LARAVEL_DATA_PATH'])) {
-            $path = $application->basePath($_ENV['LARAVEL_DATA_PATH']);
-        } elseif (isset($_SERVER['LARAVEL_DATA_PATH'])) {
-            $path = $application->basePath($_SERVER['LARAVEL_DATA_PATH']);
-        } else {
-            $path = $application->basePath('data');
-        }
-        $application->instance('path.data', $path);
-    })
-    ->booted(function (Application $application) {
-        //
-    })
+//    ->booting(function (Application $application) {
+//        if (isset($_ENV['LARAVEL_DATA_PATH'])) {
+//            $path = $application->basePath($_ENV['LARAVEL_DATA_PATH']);
+//        } elseif (isset($_SERVER['LARAVEL_DATA_PATH'])) {
+//            $path = $application->basePath($_SERVER['LARAVEL_DATA_PATH']);
+//        } else {
+//            $path = $application->basePath('data');
+//        }
+//        $application->instance('path.data', $path);
+//    })
+//    ->booted(function (Application $application) {
+//        //
+//    })
     ->create();

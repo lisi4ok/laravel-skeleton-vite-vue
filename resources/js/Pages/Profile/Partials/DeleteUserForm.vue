@@ -8,7 +8,7 @@ import Modal from '@/Components/Modal.vue';
 import SecondaryButton from '@/Components/SecondaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 
-const confirmingUserDeletion = ref(false);
+const confirmingUserDeletion = ref<boolean>(false);
 const passwordInput = ref<HTMLInputElement | null>(null);
 
 const form = useForm({
