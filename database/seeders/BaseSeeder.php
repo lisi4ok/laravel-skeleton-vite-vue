@@ -14,8 +14,8 @@ abstract class BaseSeeder extends Seeder
     public function error(string $error): void
     {
         with(new TwoColumnDetail($this->command->getOutput()))->render(
-            "<fg=red>$error</>",
-            "<fg=red;options=bold>ERROR</>"
+            '<fg=red>' . $error . '</>',
+            '<fg=red;options=bold>ERROR</>'
         );
     }
 }

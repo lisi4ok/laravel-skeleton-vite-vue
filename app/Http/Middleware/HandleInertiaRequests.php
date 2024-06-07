@@ -20,15 +20,19 @@ class HandleInertiaRequests extends Middleware
      *
      * @see https://inertiajs.com/server-side-setup#root-template
      *
-     * @return string
+     * @param Request $request
+     * @return string|null
      */
-    public function rootView(Request $request)
+    public function rootView(Request $request): string|null
     {
         return parent::rootView($request);
     }
 
     /**
      * Determine the current asset version.
+     *
+     * @param Request $request
+     * @return string|null
      */
     public function version(Request $request): string|null
     {
@@ -38,6 +42,7 @@ class HandleInertiaRequests extends Middleware
     /**
      * Define the props that are shared by default.
      *
+     * @param Request $request
      * @return array<string, mixed>
      */
     public function share(Request $request): array

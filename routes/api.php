@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\JsonResponse;
 use Tighten\Ziggy\Ziggy;
 
 /*
@@ -15,10 +16,10 @@ use Tighten\Ziggy\Ziggy;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+Route::middleware('auth:sanctum')->get('/user', function (Request $request): mixed {
     return $request->user();
 });
 
-Route::get('ziggy/{group?}', fn ($group = null) => response()->json(
+Route::get('ziggy/{group?}', fn ($group = null): JsonResponse => response()->json(
     $group === null ? new Ziggy : new Ziggy([$group])
 ));
